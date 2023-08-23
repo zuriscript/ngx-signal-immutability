@@ -1,0 +1,38 @@
+{
+  "name": "ngx-signal-immutability",
+  "version": "0.1.1",
+  "description": "Compile-time and runtime immutability for Angular signals",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/zuriscript/ngx-signal-immutability/issues"
+  },
+  "homepage": "https://github.com/zuriscript/ngx-signal-immutability#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zuriscript/ngx-signal-immutability"
+  },
+  "keywords": [
+    "signal",
+    "immutable",
+    "immutability",
+    "angular",
+    "ngx-signal-immutability",
+    "reactive",
+    "library"
+  ],
+  "author": {
+    "name": "Zur Vonarburg-Shmaria",
+    "url": "https://zurshmaria.ch"
+  },
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false
+}
