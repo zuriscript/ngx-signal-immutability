@@ -136,13 +136,13 @@ import { produce } from 'immer';
 
 // Set global mutation function
 setGlobalSignalLockOptions({
-  cloneAndMutateFn: produce,
+  mutationProducerFn: produce,
 });
 
 // Set mutation func for specific immutable writable signal
 const immutableSig = immutableSignal(
   { count: 0 },
-  { cloneAndMutateFn: produce }
+  { mutationProducerFn: produce }
 );
 ```
 

@@ -1,5 +1,5 @@
 <p align="center">
- <img width="30%" height="30%" src="logo.png">
+ <img width="22%" height="22%" src="logo.png">
 </p>
 
 # ngx-signal-immutability
@@ -140,13 +140,13 @@ import { produce } from 'immer';
 
 // Set global mutation function
 setGlobalSignalLockOptions({
-  cloneAndMutateFn: produce,
+  mutationProducerFn: produce,
 });
 
 // Set mutation func for specific immutable writable signal
 const immutableSig = immutableSignal(
   { count: 0 },
-  { cloneAndMutateFn: produce }
+  { mutationProducerFn: produce }
 );
 ```
 
