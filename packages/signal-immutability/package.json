@@ -1,6 +1,6 @@
 {
   "name": "ngx-signal-immutability",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Compile-time and runtime immutability for Angular signals",
   "publishConfig": {
     "access": "public"

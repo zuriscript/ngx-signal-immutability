@@ -108,12 +108,12 @@ import {
   setGlobalImmutableSignalOptions,
 } from 'ngx-signal-immutability';
 
-// Enable deep freezing globally
+// Option 1: Enable deep freezing globally
 setGlobalImmutableSignalOptions({ enableDeepFreezing: true });
 const writableImmutableSig1 = immutableSignal({ count: 0 }); // Any update of the value is automatically freezed
 const immutableSig1 = immutable(signal({ count: 0 })); // Any derived value is automatically freezed
 
-// Enable deep freezing for specifc immutable signals
+// Option 2: Enable deep freezing for specifc immutable signals
 const writableImmutableSig2 = immutableSignal(
   { count: 0 },
   { enableDeepFreezing: true }
@@ -130,16 +130,16 @@ When no specific strategy is provided, a basic Clone-and-Mutate approach is empl
 ```typescript
 import {
   immutableSignal,
-  setGlobalSignalLockOptions,
+  setGlobalImmutableSignalOptions,
 } from 'ngx-signal-immutability';
 import { produce } from 'immer';
 
-// Set global mutation function
-setGlobalSignalLockOptions({
+// Option 1: Set global mutation function
+setGlobalImmutableSignalOptions({
   mutationProducerFn: produce,
 });
 
-// Set mutation func for specific immutable writable signal
+// Option 2: Set mutation func for specific immutable writable signal
 const immutableSig = immutableSignal(
   { count: 0 },
   { mutationProducerFn: produce }
