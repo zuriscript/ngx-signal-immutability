@@ -31,9 +31,19 @@ Another reason for this library is to bring the many advantages of immutability 
 
 - Supports interoperability with rxjs observables, which may relay on a stream of immutable values (see `buffer`, `shareReplay`, etc.)
 - Allows for accumulation of singal emmited values over time
+- Signal consumers operate on their individual copies, effectively eliminating various potential concurrent pitfalls
 - Helps following unidirectional dataflow principle
 - More closely adheres to the principles of the functional programming paradigm, enhancing predictability in state modification (matter of taste)
 - Improved signal state change detection, since modification of a signal only then fires a changed event notification if the new value is an actual new object
+
+## Performance Considerations
+
+As later observed in the usage section, this library provides two methods for achieving signal immutability:
+
+1. The first method involves making a `Writable Signal` immutable, resulting in the creation of a new object with every mutation. While this approach may introduce a potential performance dip in computationally intensive scenarios, its advantages, as listed above, often outweigh this concern, particularly when considering signals as part of the application state.
+2. Alternatively, `derived signals` can be made immutable without affecting the source (writable) signal, thus eliminating the need for immutable updates. This ensures that consumers without access to the source signal cannot modify its value. In this case, the only expected overhead would relate to deep freezing, which can be disabled for production purposes.
+
+As a rule of thumb: If you find yourself mutating signal values within computationally intensive procedures, such as deep within deeply nested for-loops, you may want to avoid using writable immutable signals. However, it often makes complete sense to employ fully immutable signals or, at the very least, opt for the second variant, which involves making derived signals immutable.
 
 ## Installation
 
